@@ -1,7 +1,7 @@
 
 # Mobileria Ajla 🛋️
 
-Mirë se vini në website-in zyrtar të Mobileria Ajla!
+Mirë se vini në website-in zyrtar të Mobileria Ajla
 
 ## Produktet
 - Kuzhina moderne
