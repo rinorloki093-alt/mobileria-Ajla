@@ -1,0 +1,121 @@
+
+<!DOCTYPE html>
+<html lang="sq">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mobileria Ajla | Mobilie Moderne</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial,sans-serif;background:#f8f5f0;color:#30271f}
+header{background:#30271f;color:white;padding:22px;text-align:center}
+header h1{color:#e0bd8d;margin:0 0 8px}
+nav a{color:white;text-decoration:none;margin:8px;display:inline-block}
+.hero{text-align:center;padding:65px 18px;background:#e8d9c7}
+.hero h2{font-size:36px}
+section{padding:35px 16px;text-align:center}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:18px;max-width:1100px;margin:auto}
+.card{background:white;border-radius:10px;overflow:hidden;padding-bottom:18px;box-shadow:0 3px 14px #0001}
+.card img{width:100%;height:220px;object-fit:cover}
+.card h3{margin:18px 8px 8px}
+.btn{display:inline-block;background:#947047;color:white;padding:12px 18px;border:0;border-radius:6px;text-decoration:none;cursor:pointer;font-size:15px}
+form{max-width:500px;margin:auto;text-align:left;background:white;padding:22px;border-radius:10px}
+input,select,textarea{width:100%;padding:12px;margin:7px 0 14px;border:1px solid #ccc;border-radius:5px;font-size:16px}
+form button{width:100%}
+footer{background:#30271f;color:white;text-align:center;padding:22px}
+</style>
+</head>
+<body>
+<header>
+<h1>MOBILERIA AJLA</h1>
+<p>Mobilie moderne për shtëpinë tuaj</p>
+<nav>
+<a href="#ballina">Ballina</a>
+<a href="#mobiliet">Mobiliet</a>
+<a href="#porosia">Porosit online</a>
+</nav>
+</header>
+
+<div class="hero" id="ballina">
+<h2>Elegancë në çdo detaj</h2>
+<p>Kuzhina, dhoma gjumi dhe dollapë sipas dëshirës suaj.</p>
+<a class="btn" href="#mobiliet">Shiko koleksionin</a>
+</div>
+
+<section id="mobiliet">
+<h2>Koleksioni ynë</h2>
+<p>Zgjidh mobilien tënde dhe porosite në WhatsApp.</p>
+<div class="grid">
+<div class="card">
+<img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80" alt="Kuzhinë moderne">
+<h3>Kuzhina moderne</h3>
+<p>Dizajne elegante dhe ngjyra të ndryshme.</p>
+<button class="btn" onclick="zgjedh('Kuzhinë moderne')">Porosit këtë</button>
+</div>
+<div class="card">
+<img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=800&q=80" alt="Dhomë gjumi">
+<h3>Dhoma gjumi</h3>
+<p>Komoditet dhe stil për shtëpinë tuaj.</p>
+<button class="btn" onclick="zgjedh('Dhomë gjumi')">Porosit këtë</button>
+</div>
+<div class="card">
+<img src="https://images.unsplash.com/photo-1594620302200-9a762244a156?auto=format&fit=crop&w=800&q=80" alt="Dollap">
+<h3>Dollapë</h3>
+<p>Zgjidhje praktike sipas hapësirës suaj.</p>
+<button class="btn" onclick="zgjedh('Dollap')">Porosit këtë</button>
+</div>
+</div>
+</section>
+
+<section id="porosia">
+<h2>Porosit online</h2>
+<p>Plotëso të dhënat. Porosia do të hapet në WhatsApp.</p>
+<form onsubmit="dergo(event)">
+<label>Emri dhe mbiemri</label>
+<input id="emri" required placeholder="Shkruaj emrin tënd">
+<label>Numri i telefonit</label>
+<input id="telefoni" required type="tel" placeholder="Numri yt">
+<label>Çfarë dëshiron të porositësh?</label>
+<select id="produkti" required>
+<option value="">Zgjidh produktin</option>
+<option>Kuzhinë moderne</option>
+<option>Dhomë gjumi</option>
+<option>Dollap</option>
+<option>Tjetër mobilie</option>
+</select>
+<label>Përmasat, ngjyra dhe detajet</label>
+<textarea id="detajet" rows="4" placeholder="Shkruaj përmasat ose kërkesat e tua"></textarea>
+<label>Qyteti / vendi i dorëzimit</label>
+<input id="qyteti" required placeholder="Ku ndodhesh?">
+<button class="btn" type="submit">Dërgo porosinë në WhatsApp</button>
+</form>
+</section>
+
+<section>
+<h2>Kontakti</h2>
+<p>Telefon / WhatsApp: +383 48 660 790</p>
+<a class="btn" href="https://wa.me/38348660790">Na shkruaj në WhatsApp</a>
+<a class="btn" href="viber://chat?number=%2B38348660790">Viber</a>
+</section>
+
+<footer>© 2026 Mobileria Ajla</footer>
+
+<script>
+function zgjedh(produkti){
+document.getElementById('produkti').value=produkti;
+document.getElementById('porosia').scrollIntoView({behavior:'smooth'});
+}
+function dergo(e){
+e.preventDefault();
+const emri=document.getElementById('emri').value;
+const telefoni=document.getElementById('telefoni').value;
+const produkti=document.getElementById('produkti').value;
+const detajet=document.getElementById('detajet').value;
+const qyteti=document.getElementById('qyteti').value;
+const mesazhi=`Përshëndetje Mobileria Ajla! Dua të bëj një porosi.\nEmri: ${emri}\nTelefoni: ${telefoni}\nProdukti: ${produkti}\nDetajet: ${detajet}\nVendi: ${qyteti}`;
+window.open('https://wa.me/38348660790?text='+encodeURIComponent(mesazhi),'_blank');
+}
+</script>
+</body>
+</html>
+
